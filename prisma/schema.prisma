@@ -1,0 +1,24 @@
+// Prisma schema — define o modelo de dados e a conexão com o banco
+// Usando SQLite para facilidade de execução local sem dependências externas
+// Para produção, basta trocar provider para "postgresql" e ajustar DATABASE_URL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  nome      String
+  email     String   @unique
+  senha     String
+  telefone  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
