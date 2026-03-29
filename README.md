@@ -1,5 +1,7 @@
 # User Management API
 
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Zod](https://img.shields.io/badge/zod-%233068b7.svg?style=for-the-badge&logo=zod&logoColor=white) ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+
 API REST para gerenciamento de usuários construída com Node.js, Express e Prisma ORM.
 
 ## Por que SQLite?
@@ -10,17 +12,17 @@ SQLite foi escolhido para facilitar a execução local sem necessidade de instal
 
 ## Stack
 
-| Tecnologia | Papel |
-|---|---|
-| Node.js 18+ | Runtime |
-| Express 4 | Framework HTTP |
-| Prisma 5 | ORM + migrations |
-| SQLite | Banco de dados local |
-| Zod | Validação de dados |
-| bcryptjs | Hash de senhas |
-| helmet | Headers de segurança |
-| cors | Controle de CORS |
-| morgan | Logging de requests |
+| Tecnologia       | Papel                |
+| ---------------- | -------------------- |
+| Node.js 18+      | Runtime              |
+| Express 4        | Framework HTTP       |
+| Prisma 5         | ORM + migrations     |
+| SQLite           | Banco de dados local |
+| Zod              | Validação de dados   |
+| bcryptjs         | Hash de senhas       |
+| helmet           | Headers de segurança |
+| cors             | Controle de CORS     |
+| morgan           | Logging de requests  |
 | Jest + Supertest | Testes de integração |
 
 ---
@@ -116,24 +118,24 @@ GET /health
 
 ### Usuários
 
-| Método | Rota | Descrição |
-|---|---|---|
-| `GET` | `/users` | Listar usuários (paginado + filtros) |
-| `GET` | `/users/:id` | Buscar usuário por ID |
-| `POST` | `/users` | Criar usuário |
-| `PUT` | `/users/:id` | Atualizar usuário |
-| `DELETE` | `/users/:id` | Remover usuário |
+| Método   | Rota         | Descrição                            |
+| -------- | ------------ | ------------------------------------ |
+| `GET`    | `/users`     | Listar usuários (paginado + filtros) |
+| `GET`    | `/users/:id` | Buscar usuário por ID                |
+| `POST`   | `/users`     | Criar usuário                        |
+| `PUT`    | `/users/:id` | Atualizar usuário                    |
+| `DELETE` | `/users/:id` | Remover usuário                      |
 
 ---
 
 ## Parâmetros de query (GET /users)
 
-| Parâmetro | Tipo | Padrão | Descrição |
-|---|---|---|---|
-| `page` | number | 1 | Página atual |
-| `limit` | number | 10 | Itens por página (máx. 100) |
-| `nome` | string | — | Filtro parcial por nome |
-| `email` | string | — | Filtro parcial por email |
+| Parâmetro | Tipo   | Padrão | Descrição                   |
+| --------- | ------ | ------ | --------------------------- |
+| `page`    | number | 1      | Página atual                |
+| `limit`   | number | 10     | Itens por página (máx. 100) |
+| `nome`    | string | —      | Filtro parcial por nome     |
+| `email`   | string | —      | Filtro parcial por email    |
 
 ---
 
@@ -153,6 +155,7 @@ curl -X POST http://localhost:3000/users \
 ```
 
 **Resposta 201:**
+
 ```json
 {
   "success": true,
@@ -177,6 +180,7 @@ curl "http://localhost:3000/users?page=1&limit=5&nome=maria"
 ```
 
 **Resposta 200:**
+
 ```json
 {
   "success": true,
@@ -254,12 +258,12 @@ curl -X DELETE http://localhost:3000/users/clxyz...
 
 ## Variáveis de ambiente
 
-| Variável | Descrição | Padrão |
-|---|---|---|
-| `DATABASE_URL` | URL de conexão com o banco | `file:./dev.db` |
-| `PORT` | Porta do servidor | `3000` |
-| `NODE_ENV` | Ambiente (`development`, `production`, `test`) | `development` |
-| `BCRYPT_SALT_ROUNDS` | Rounds do bcrypt | `10` |
+| Variável             | Descrição                                      | Padrão          |
+| -------------------- | ---------------------------------------------- | --------------- |
+| `DATABASE_URL`       | URL de conexão com o banco                     | `file:./dev.db` |
+| `PORT`               | Porta do servidor                              | `3000`          |
+| `NODE_ENV`           | Ambiente (`development`, `production`, `test`) | `development`   |
+| `BCRYPT_SALT_ROUNDS` | Rounds do bcrypt                               | `10`            |
 
 ---
 
